@@ -65,7 +65,9 @@
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": ">=0.71.0"
+    "react-native": ">=0.71.0",
+    "react-native-bignumber": "*",
+    "react-native-bls-signatures": "*"
   },
   "release-it": {
     "git": {
@@ -127,5 +129,6 @@
         }
       ]
     ]
-  }
+  },
+  "packageManager": "yarn@3.6.3"
 }
