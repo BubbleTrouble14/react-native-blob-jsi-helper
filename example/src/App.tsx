@@ -1,14 +1,26 @@
 import * as React from 'react';
 
-import { StyleSheet, View } from 'react-native';
-import { Program } from './types/Program';
+import { Button, StyleSheet, View } from 'react-native';
+import { addNumbersTest } from 'react-native-blob-jsi-helper';
+
+declare global {
+  var performance: {
+    now: () => number;
+  };
+}
 
 export default function App() {
-  React.useEffect(() => {
-    console.log(Program.fromInt(1).toHex());
-  }, []);
-
-  return <View style={styles.container} />;
+  return (
+    <View style={styles.container}>
+      <Button
+        title="BigNumber"
+        onPress={() => {
+          console.log(addNumbersTest(1, 2));
+        }}
+      />
+      <Button title="bigint" onPress={() => {}} />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({

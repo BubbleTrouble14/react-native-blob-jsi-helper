@@ -30,6 +30,12 @@ function isBlobData(data: unknown): data is BlobData {
   );
 }
 
+export function addNumbersTest(n1: number, n2: number): number {
+  // @ts-expect-error I inject that function using JSI.
+  const newNum = global.addNumbersTest(n1, n2) as number;
+  return newNum;
+}
+
 export function getArrayBufferForBlob(blob: Blob): Uint8Array {
   // @ts-expect-error React Native adds the hidden `_data` field.
   const data = blob._data;

@@ -40,6 +40,10 @@ project.xcworkspace
 local.properties
 android.iml
 
+rust/headers
+rust/Resources
+rust/target
+
 # Cocoapods
 #
 example/ios/Pods

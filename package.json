@@ -14,6 +14,7 @@
     "android/build.gradle",
     "android/CMakeLists.txt",
     "ios/BlobJsiHelper.xcodeproj/project.pbxproj",
+    "ios/Clibrustmodule.xcframework",
     "ios/**/*.h",
     "ios/**/*.mm",
     "cpp",

@@ -5442,19 +5442,8 @@ __metadata:
     react: ^18.2.0
     react-native: ^0.71.0
     react-native-bignumber: ^0.2.1
-    react-native-bls-signatures: ^0.0.9
   languageName: unknown
   linkType: soft
-
-"react-native-bls-signatures@npm:^0.0.9":
-  version: 0.0.9
-  resolution: "react-native-bls-signatures@npm:0.0.9"
-  peerDependencies:
-    react: "*"
-    react-native: ">=0.71.0"
-  checksum: e3c87f0104faa23fc975b79d928eabbc26f981a553cd6a76eb7bfa36a0d3a38df3935a216be55e97738f109904fe8c250f8d1812fed122aea47897a1facd594d
-  languageName: node
-  linkType: hard
 
 "react-native-codegen@npm:^0.71.5":
   version: 0.71.5

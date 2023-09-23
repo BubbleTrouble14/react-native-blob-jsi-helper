@@ -1,0 +1,5 @@
+module Clistblst {
+    header "blst.h"
+    header "blst_aux.h"
+    export *
+}
