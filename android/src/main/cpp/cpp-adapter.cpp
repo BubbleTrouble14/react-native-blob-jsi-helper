@@ -3,6 +3,7 @@
 #include <string>
 #include "../cpp/JSI Utils/TypedArray.h"
 #include <android/log.h>
+#include "../cpp/include/clvm.h"
 
 using namespace facebook;
 
@@ -11,6 +12,28 @@ typedef u_int8_t byte;
 void install(jsi::Runtime& jsiRuntime,
              std::function<byte*(const std::string& blobId, int offset, int size)> getBytesFromBlob,
              std::function<std::string(byte* bytes, size_t size)> createBlob) {
+
+
+    auto addNumbersTest = jsi::Function::createFromHostFunction(jsiRuntime,
+                                                                       jsi::PropNameID::forAscii(jsiRuntime, "addNumbersTest"),
+                                                                       1,
+                                                                       [=](jsi::Runtime& runtime,
+                                                                         const jsi::Value& thisValue,
+                                                                         const jsi::Value* arguments,
+                                                                         size_t count) -> jsi::Value {
+        if (count < 2) {
+            throw jsi::JSError(runtime, "Two numbers required");
+        }
+
+        int n1 = static_cast<int>(arguments[0].asNumber());
+        int n2 = static_cast<int>(arguments[1].asNumber());
+
+        int newVal = add_numbers(n1, n2);
+
+        return jsi::Value(static_cast<double>(newVal));
+    });
+    jsiRuntime.global().setProperty(jsiRuntime, "addNumbersTest", std::move(addNumbersTest));
+
     // getArrayBufferForBlob()
     auto getArrayBufferForBlob = jsi::Function::createFromHostFunction(jsiRuntime,
                                                                        jsi::PropNameID::forAscii(jsiRuntime, "getArrayBufferForBlob"),

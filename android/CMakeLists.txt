@@ -24,6 +24,10 @@ set_target_properties(
         POSITION_INDEPENDENT_CODE ON
 )
 
+add_library( libclvm STATIC IMPORTED )
+set_target_properties(libclvm
+    PROPERTIES
+    IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/libs/${ANDROID_ABI}/libclvm.a )
 
 find_package(ReactAndroid REQUIRED CONFIG)
 find_library(log-lib log)
@@ -33,4 +37,5 @@ target_link_libraries(
         ${log-lib}          # <-- Logcat logger
         ReactAndroid::jsi   # <-- JSI
         android             # <-- Android JNI core
+        libclvm
 )
